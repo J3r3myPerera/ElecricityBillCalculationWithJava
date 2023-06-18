@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ElecricityBill/ElecricityBill.iml" filepath="$PROJECT_DIR$/ElecricityBill/ElecricityBill.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ElecricityBillCalculator.iml" filepath="$PROJECT_DIR$/.idea/ElecricityBillCalculator.iml" />
     </modules>
   </component>
