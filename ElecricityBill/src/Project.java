@@ -99,5 +99,133 @@ public class Project  extends JFrame implements ActionListener {
         u3.addActionListener(this);
 
 //        ---------------------------------------------------
+//        Third column
+        JMenu report = new JMenu("Report");
+        JMenuItem r1 = new JMenuItem("Generate Bill");
+        report.setForeground(Color.BLUE);
+
+//        Report
+        r1.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon7 = new ImageIcon(ClassLoader.getSystemResource("images/icon7.png"));
+        Image image7= icon7.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        r1.setIcon(new ImageIcon(image7));
+        r1.setMnemonic('R');
+        r1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R, ActionEvent.CTRL_MASK));
+        r1.setBackground(Color.WHITE);
+
+        r1.addActionListener(this);
+
+//        -----------------------------------------------------
+//        Fourth column
+        JMenu utility = new JMenu("Utility");
+        JMenuItem ut1 = new JMenuItem("Notepad");
+        JMenuItem ut2 = new JMenuItem("Calculator");
+        JMenuItem ut3 = new JMenuItem("Web browser");
+        utility.setForeground(Color.RED);
+
+//        Calender
+        ut1.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon8 = new ImageIcon(ClassLoader.getSystemResource("images/icon12.png"));
+        Image image8= icon8.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        r1.setIcon(new ImageIcon(image8));
+        r1.setMnemonic('C');
+        r1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+        r1.setBackground(Color.WHITE);
+
+//        Calculator
+        ut2.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon9 = new ImageIcon(ClassLoader.getSystemResource("images/icon9.png"));
+        Image image9= icon9.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        r1.setIcon(new ImageIcon(image9));
+        r1.setMnemonic('X');
+        r1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X, ActionEvent.CTRL_MASK));
+        r1.setBackground(Color.WHITE);
+
+//        Web browser
+        ut3.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon10 = new ImageIcon(ClassLoader.getSystemResource("images/icon10.png"));
+        Image image10= icon10.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        r1.setIcon(new ImageIcon(image10));
+        r1.setMnemonic('W');
+        r1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
+        r1.setBackground(Color.WHITE);
+
+        ut1.addActionListener(this);
+        ut2.addActionListener(this);
+        ut3.addActionListener(this);
+
+//        -----------------------------------------------------
+//        fifth column
+        JMenu exit = new JMenu("Exit");
+        JMenuItem ex = new JMenuItem("Exit");
+        exit.setForeground(Color.BLUE);
+
+//        Exit
+        ex.setFont(new Font("monospaced",Font.PLAIN,12));
+        ImageIcon icon11 = new ImageIcon(ClassLoader.getSystemResource("images/icon11.png"));
+        Image image11= icon11.getImage().getScaledInstance(20,20,Image.SCALE_DEFAULT);
+        r1.setIcon(new ImageIcon(image11));
+        r1.setMnemonic('Z');
+        r1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z, ActionEvent.CTRL_MASK));
+        r1.setBackground(Color.WHITE);
+
+        ex.addActionListener(this);
+
+        //        -----------------------------------------------------
+
+        master.add(m1);
+        master.add(m2);
+//        master.add(m3);
+
+        user.add(u1);
+        user.add(u2);
+        user.add(u3);
+
+        report.add(r1);
+
+        utility.add(ut1);
+        utility.add(ut2);
+        utility.add(ut3);
+
+        exit.add(ex);
+
+        mb.add(master);
+        mb.add(user);
+        mb.add(report);
+        mb.add(utility);
+        mb.add(exit);
+
+        setJMenuBar(mb);
+
+        setFont(new Font("Senseri", Font.BOLD,16));
+        setLayout(new FlowLayout());
+        setVisible(false);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        String msg = ae.getActionCommand();
+        if (msg.equals("Customer Details")){
+            new customer_details().setVisible(true);
+
+        } else if (msg.equals("New Customer")){
+            new new_customer().setVisible(true);
+
+        } else if (msg.equals("Calculate Bill")) {
+            new calculate_bill().setVisible(true);
+
+        } else if (msg.equals("Pay Bill")) {
+            new pay_bill().setVisible(true);
+
+        } else if (msg.equals("Notepad")) {
+            try {
+                Runtime.getRuntime().exec("Notes.app");
+            }catch(Exception e){}
+
+
+        }
+    }
+
+    public static void main(String[] args){
+        new Project().setVisible(true);
     }
 }
