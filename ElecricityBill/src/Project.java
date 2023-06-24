@@ -220,8 +220,20 @@ public class Project  extends JFrame implements ActionListener {
             try {
                 Runtime.getRuntime().exec("Notes.app");
             }catch(Exception e){}
-
-
+        } else if (msg.equals("Calculator")){
+            try{
+                Runtime.getRuntime().exec("Calculator.app");
+            } catch(Exception e){}
+        } else if (msg.equals("Web Browser")) {
+            try{
+                Runtime.getRuntime().exec("Applications/Brave Browser.app");
+            } catch(Exception e) {}
+        } else if (msg.equals("Exit")){
+            System.exit(0);
+        } else if (msg.equals("Generate Bill")) {
+            new generate_bill().setVisible(true);
+        } else if (msg.equals("Last Bill")) {
+            new LastBill().setVisible(true);
         }
     }
 
