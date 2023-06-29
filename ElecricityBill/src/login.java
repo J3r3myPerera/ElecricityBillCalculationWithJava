@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class login extends JFrame implements ActionListener {
 
@@ -41,8 +43,47 @@ public class login extends JFrame implements ActionListener {
         p3 = new JPanel();
         p4 = new JPanel();
 
+        add(l3,BorderLayout.WEST);
+        p2.add(l1);
+        p2.add(tf1);
+        p2.add(l2);
+        p2.add(pf2);
+        add(p2,BorderLayout.CENTER);
 
+        p4.add(b1);
+        p4.add(b2);
+        add(p4,BorderLayout.SOUTH);
 
+        p2.setBackground(Color.WHITE);
+        p4.setBackground(Color.WHITE);
+
+        setSize(640,450);
+        setLocation(600,400);
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent ae) {
+        try{
+            conn c1 = new conn();
+            String a = tf1.getText();
+            String b = pf2.getText();
+            String q = "select * from login where username = "+a+" 'and password ='"+b+"'";
+            ResultSet rs = c1.s.executeQuery(q);
+            if (rs.next()){
+                new Project().setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(null, "Invalid login");
+                setVisible(false);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("error: "+e);
+        }
+    }
+
+    public static void main(String[] args){
+        new login().setVisible(true);
     }
 
 
